@@ -15,7 +15,7 @@ class Alexandria < Formula
   def install
     mkdir "build" do
       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/opt"
-      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", "-DSQUEEZED_INSTALL=YES", *std_cmake_args
+      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
       system "make"
       system "make", "install"
     end

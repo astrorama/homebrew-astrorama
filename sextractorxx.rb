@@ -10,6 +10,7 @@ class Sextractorxx < Formula
   depends_on "wcslib"
   depends_on "opencv"
   depends_on "ccfits"
+  depends_on "yaml-cpp"
 
   def install
     mkdir "build" do

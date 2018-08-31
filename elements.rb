@@ -13,7 +13,7 @@ class Elements < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", "-DSQUEEZED_INSTALL=YES", *std_cmake_args
+      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
       system "make"
       system "make", "install"
     end
