@@ -6,15 +6,15 @@ class Elements < Formula
   version "5.5"
   url "https://github.com/degauden/Elements/archive/develop.tar.gz"
   depends_on "cmake" => :build
-  depends_on "boost" => :build
-  depends_on "log4cpp" => :build
+  depends_on "boost"
+  depends_on "log4cpp"
 
   needs :cxx11
 
   def install
     mkdir "build" do
       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", "-DSQUEEZED_INSTALL=YES", *std_cmake_args
-      system "make", "-j"
+      system "make"
       system "make", "install"
     end
   end
