@@ -10,8 +10,9 @@ class Wcslib < Formula
   depends_on "flex" => :build
 
   bottle do
-    root_url "https://bintray.com/ayllon/bottles"
-    sha256 "07d56bf9e9446198cc0d3322eb8d7e16ab7a25ffca88f29a467c785cfafea621" => :x86_64_linux
+    root_url "https://dl.bintray.com/ayllon/bottles/"
+    cellar :any_skip_relocation
+    sha256 "800824fc6207b7d0deaf381d7ecc5966bffab714a80bf9f64e0cd9ad277690da" => :x86_64_linux
   end
 
   def install
