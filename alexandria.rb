@@ -14,7 +14,7 @@ class Alexandria < Formula
 
   def install
     mkdir "build" do
-      ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/opt"
+      ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"
       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
       system "make"
       system "make", "install"

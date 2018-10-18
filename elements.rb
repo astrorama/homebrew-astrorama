@@ -12,6 +12,8 @@ class Elements < Formula
   needs :cxx11
 
   def install
+    inreplace "cmake/ElementsLocations.cmake", "set(lib_install_suff lib64)", "set(lib_install_suff lib)"
+
     mkdir "build" do
       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
       system "make"

@@ -8,14 +8,18 @@ class Sextractorxx < Formula
   depends_on "cmake" => :build
   depends_on "Alexandria"
   depends_on "wcslib"
-  depends_on "opencv"
   depends_on "ccfits"
   depends_on "yaml-cpp"
+  depends_on "fftw"
 
   def install
+    inreplace "SEBenchmarks/CMakeLists.txt", "find_package(OpenCV)", ""
+    inreplace "ModelFitting/CMakeLists.txt", "find_package(OpenCV)", ""
+
     mkdir "build" do
-       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/opt"
-       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", "-DSQUEEZED_INSTALL=YES", *std_cmake_args
+       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"
+
+       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
        system "make"
        system "make", "install"
     end
