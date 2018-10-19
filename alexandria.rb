@@ -6,9 +6,9 @@ class Alexandria < Formula
   url "https://github.com/ayllon/Alexandria/archive/copr.tar.gz"
   version "2.9"
   depends_on "cmake" => :build
-  depends_on "Elements"
   depends_on "cfitsio"
   depends_on "ccfits"
+  depends_on "Elements"
 
   needs :cxx11
 

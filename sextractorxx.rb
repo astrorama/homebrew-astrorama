@@ -6,12 +6,12 @@ class Sextractorxx < Formula
   url "https://github.com/ebertin/sextractorxx/archive/master.tar.gz"
   version "0.1"
   depends_on "cmake" => :build
-  depends_on "Alexandria"
   depends_on "wcslib"
   depends_on "ccfits"
   depends_on "yaml-cpp"
   depends_on "fftw"
   depends_on "levmar"
+  depends_on "Alexandria"
 
   def install
     inreplace "SEBenchmarks/CMakeLists.txt", "find_package(OpenCV)", ""
