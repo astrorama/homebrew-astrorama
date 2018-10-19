@@ -11,6 +11,7 @@ class Sextractorxx < Formula
   depends_on "ccfits"
   depends_on "yaml-cpp"
   depends_on "fftw"
+  depends_on "levmar"
 
   def install
     inreplace "SEBenchmarks/CMakeLists.txt", "find_package(OpenCV)", ""
