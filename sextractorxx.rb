@@ -16,6 +16,7 @@ class Sextractorxx < Formula
   def install
     inreplace "SEBenchmarks/CMakeLists.txt", "find_package(OpenCV)", ""
     inreplace "ModelFitting/CMakeLists.txt", "find_package(OpenCV)", ""
+    inreplace "CMakeLists.txt", "Elements 5.2.1", "Elements 5.5"
 
     mkdir "build" do
        ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"

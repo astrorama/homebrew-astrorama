@@ -9,12 +9,6 @@ class Wcslib < Formula
   depends_on "doxygen" => :build
   depends_on "flex" => :build
 
-  bottle do
-    root_url "https://dl.bintray.com/ayllon/bottles/"
-    cellar :any_skip_relocation
-    sha256 "800824fc6207b7d0deaf381d7ecc5966bffab714a80bf9f64e0cd9ad277690da" => :x86_64_linux
-  end
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
