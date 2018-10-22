@@ -1,21 +1,35 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                http://www.rubydoc.info/github/Homebrew/brew/master/Formula
 class Elements < Formula
+  include Language::Python::Virtualenv
+
   desc "C++/Python Build Framework"
   homepage ""
   version "5.5"
   url "https://github.com/degauden/Elements/archive/develop.tar.gz"
-  depends_on "cmake" => :build
+  depends_on "cmake"
+  depends_on "pkg-config"
   depends_on "boost"
   depends_on "log4cpp"
 
   needs :cxx11
 
+  resource "pytest" do
+    url "https://files.pythonhosted.org/packages/db/88/11b1a23db24d29556b5a0fa661bf7f2205d7b5f9bd2c9f578e5dd4997441/pytest-3.9.1.tar.gz"
+    sha256 "8c827e7d4816dfe13e9329c8226aef8e6e75d65b939bc74fda894143b6d1df59"
+  end
+
   def install
     inreplace "cmake/ElementsLocations.cmake", "set(lib_install_suff lib64)", "set(lib_install_suff lib)"
 
+    venv = virtualenv_create(libexec)
+    venv.pip_install resource("pytest")
+
+    ENV.prepend_create_path "PATH", libexec/"bin"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+
     mkdir "build" do
-      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
+      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=OFF", *std_cmake_args
       system "make"
       system "make", "install"
     end
