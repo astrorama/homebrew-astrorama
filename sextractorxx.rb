@@ -12,10 +12,12 @@ class Sextractorxx < Formula
   depends_on "fftw"
   depends_on "levmar"
   depends_on "Alexandria"
+  depends_on "boost-python"
 
   def install
     inreplace "SEBenchmarks/CMakeLists.txt", "find_package(OpenCV)", ""
     inreplace "ModelFitting/CMakeLists.txt", "find_package(OpenCV)", ""
+    inreplace "PythonConfig/CMakeLists.txt", "find_package(Boost REQUIRED COMPONENTS python)", "find_package(Boost REQUIRED COMPONENTS python27)"
     inreplace "CMakeLists.txt", "Elements 5.2.1", "Elements 5.5"
 
     mkdir "build" do
