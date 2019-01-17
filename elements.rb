@@ -7,6 +7,7 @@ class Elements < Formula
   homepage ""
   version "5.5"
   url "https://github.com/degauden/Elements/archive/develop.tar.gz"
+  depends_on "python"
   depends_on "cmake"
   depends_on "pkg-config"
   depends_on "boost"
@@ -27,7 +28,7 @@ class Elements < Formula
   def install
     inreplace "cmake/ElementsLocations.cmake", "set(lib_install_suff lib64)", "set(lib_install_suff lib)"
 
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("setuptools")
     venv.pip_install resource("pytest")
 
