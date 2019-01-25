@@ -5,8 +5,8 @@ class Elements < Formula
 
   desc "C++/Python Build Framework"
   homepage ""
-  version "5.5"
-  url "https://github.com/degauden/Elements/archive/develop.tar.gz"
+  version "5.4"
+  url "https://github.com/degauden/Elements/archive/5.4.tar.gz"
   depends_on "python"
   depends_on "cmake"
   depends_on "pkg-config"
