@@ -1,0 +1,14 @@
+os: osx
+rvm: system
+before_install:
+  - brew update
+  - brew --env
+  - brew config
+install:
+  - mkdir -p "$(brew --repo)/Library/Taps/astrorama"
+  - ln -s "${TRAVIS_BUILD_DIR}" "$(brew --repo)/Library/Taps/astrorama/homebrew-astrorama"
+script:
+  - brew install sextractorxx --verbose
+#  - brew audit sextractorxx --strict
+#  - brew test sextractorxx
+
