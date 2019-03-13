@@ -11,4 +11,6 @@ script:
   - brew install sextractorxx --verbose
   - brew audit sextractorxx --strict
   - brew test sextractorxx
-
+branches:
+  only:
+  - master
