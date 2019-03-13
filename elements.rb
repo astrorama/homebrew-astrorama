@@ -21,6 +21,8 @@ class Elements < Formula
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("pytest")
 
+    ENV.prepend_create_path "PATH", libexec/"bin"
+
     mkdir "build" do
       system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=OFF", *std_cmake_args
       system "make", "install"
