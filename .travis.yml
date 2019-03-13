@@ -9,6 +9,6 @@ install:
   - ln -s "${TRAVIS_BUILD_DIR}" "$(brew --repo)/Library/Taps/astrorama/homebrew-astrorama"
 script:
   - brew install sextractorxx --verbose
-#  - brew audit sextractorxx --strict
-#  - brew test sextractorxx
+  - brew audit sextractorxx --strict
+  - brew test sextractorxx
 
