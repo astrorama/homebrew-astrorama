@@ -1,9 +1,7 @@
-require 'formula'
-
 class Levmar < Formula
+  desc "Native ANSI C implementations of the Levenberg-Marquardt algorithm"
   homepage "http://www.ics.forth.gr/~lourakis/levmar/"
   url "https://src.fedoraproject.org/repo/pkgs/rpms/levmar/levmar-2.5.tgz/md5/7ca14d79eda6e985f8355b719ae47d35/levmar-2.5.tgz"
-  version "2.5"
   sha256 "b70f6ac3eff30ec29150e217b137312cb84e85529815efea2c12e4eab74b9d75"
   depends_on "lapack"
 
@@ -12,7 +10,6 @@ class Levmar < Formula
   def install
     inreplace "Makefile", "-lf2c", ""
 
-    system "mkdir", "sobj"
     system "make", "-f", "Makefile.so"
     system "make", "-f", "Makefile", "lmdemo"
 
@@ -21,7 +18,7 @@ class Levmar < Formula
     prefix.install "lmdemo"
   end
 
-  def test
+  test do
     system "#{prefix}/lmdemo"
   end
 end

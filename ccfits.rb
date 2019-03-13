@@ -1,9 +1,8 @@
 class Ccfits < Formula
+  desc "C++ Wrappers for the cfitsio library"
   homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
   url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.5.tar.gz"
   sha256 "938ecd25239e65f519b8d2b50702416edc723de5f0a5387cceea8c4004a44740"
-
-  option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on "cfitsio"
 
@@ -15,5 +14,9 @@ class Ccfits < Formula
     system "make"
     system "make", "check" if build.with? "check"
     system "make", "install"
+  end
+
+  test do
+    system bin/"cookbook"
   end
 end
