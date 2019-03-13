@@ -11,8 +11,6 @@ class Ccfits < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make"
-    system "make", "check" if build.with? "check"
     system "make", "install"
   end
 
