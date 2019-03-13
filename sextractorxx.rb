@@ -17,8 +17,6 @@ class Sextractorxx < Formula
   depends_on "boost-python"
 
   def install
-    inreplace "CMakeLists.txt", "Elements 5.2.1", "Elements 5.4"
-    inreplace "CMakeLists.txt", "Alexandria 2.9", "Alexandria 2.10"
     inreplace "SEImplementation/CMakeLists.txt", "COMPONENTS python", "COMPONENTS python27"
     inreplace "SEUtils/CMakeLists.txt", "COMPONENTS python", "COMPONENTS python27"
 
