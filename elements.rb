@@ -7,7 +7,7 @@ class Elements < Formula
   homepage ""
   version "5.4"
   url "https://github.com/degauden/Elements/archive/5.4.tar.gz"
-  depends_on "python"
+  depends_on "python" => "3"
   depends_on "cmake"
   depends_on "pkg-config"
   depends_on "boost"
@@ -30,11 +30,11 @@ class Elements < Formula
     venv.pip_install resource("setuptools")
     venv.pip_install resource("pytest")
 
-    ENV.prepend_create_path "PATH", libexec/"bin"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    #ENV.prepend_create_path "PATH", libexec/"bin"
+    #ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
     mkdir "build" do
-      system "cmake", "..", "-DELEMENTS_BUILD_TESTS=OFF", *std_cmake_args
+      system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=OFF", *std_cmake_args
       system "make"
       system "make", "install"
     end
