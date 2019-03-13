@@ -10,8 +10,6 @@ class Alexandria < Formula
   depends_on "ccfits"
   depends_on "Elements"
 
-  needs :cxx11
-
   def install
     inreplace "CMakeLists.txt", "Elements 5.2.2", "Elements 5.4"
 

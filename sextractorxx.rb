@@ -16,8 +16,6 @@ class Sextractorxx < Formula
   depends_on "Alexandria"
   depends_on "boost-python"
 
-  needs :cxx11
-
   def install
     inreplace "CMakeLists.txt", "Elements 5.2.1", "Elements 5.4"
     inreplace "CMakeLists.txt", "Alexandria 2.9", "Alexandria 2.10"

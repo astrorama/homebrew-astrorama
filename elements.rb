@@ -13,8 +13,6 @@ class Elements < Formula
   depends_on "boost"
   depends_on "log4cpp"
 
-  needs :cxx11
-
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/37/1b/b25507861991beeade31473868463dad0e58b1978c209de27384ae541b0b/setuptools-40.6.3.zip"
     sha256 "3b474dad69c49f0d2d86696b68105f3a6f195f7ab655af12ef9a9c326d2b08f8"
