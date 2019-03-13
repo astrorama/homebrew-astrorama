@@ -3,7 +3,7 @@
 class Alexandria < Formula
   desc ""
   homepage ""
-  url "https://github.com/nikoapos/Alexandria/archive/2.10.tar.gz"
+  url "https://codeload.github.com/nikoapos/Alexandria/zip/2.10_p1"
   version "2.10"
   depends_on "cmake" => :build
   depends_on "cfitsio"
@@ -11,8 +11,6 @@ class Alexandria < Formula
   depends_on "Elements"
 
   def install
-    inreplace "CMakeLists.txt", "Elements 5.2.2", "Elements 5.4"
-
     mkdir "build" do
       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"
       system "cmake", "..", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
