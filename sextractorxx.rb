@@ -3,7 +3,7 @@ require_relative "download_strategy"
 class Sextractorxx < Formula
   desc "The next generation SExtractor"
   homepage "https://github.com/ebertin/sextractorxx"
-  url "https://github.com/ebertin/sextractorxx/archive/develop.tar.gz", :using => GitHubPrivateRepositoryDownloadStrategy
+  url "https://github.com/ebertin/sextractorxx/archive/feature/progress.tar.gz", :using => GitHubPrivateRepositoryDownloadStrategy
   version "0.1"
   depends_on "cmake" => :build
   depends_on "Alexandria"
