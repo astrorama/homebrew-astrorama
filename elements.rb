@@ -2,8 +2,8 @@ class Elements < Formula
   include Language::Python::Virtualenv
 
   desc "C++/Python Build Framework"
-  homepage "https://github.com/degauden/Elements"
-  url "https://github.com/degauden/Elements/archive/5.4.tar.gz"
+  homepage "https://github.com/astrorama/Elements"
+  url "https://github.com/astrorama/Elements/archive/5.4.tar.gz"
   depends_on "boost"
   depends_on "cmake"
   depends_on "log4cpp"
