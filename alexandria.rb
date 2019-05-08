@@ -1,7 +1,7 @@
 class Alexandria < Formula
   desc "SDC-CH common library for the Euclid project"
   homepage "https://github.com/astrorama/Alexandria"
-  url "https://github.com/astrorama/Alexandria/archive/2.10_p1.tar.gz"
+  url "https://github.com/astrorama/Alexandria/archive/2.10_p2.tar.gz"
   version "2.10"
   depends_on "cmake" => :build
   depends_on "ccfits"
