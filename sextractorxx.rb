@@ -3,7 +3,7 @@ require_relative "download_strategy"
 class Sextractorxx < Formula
   desc "The next generation SExtractor"
   homepage "https://github.com/ebertin/sextractorxx"
-  url "https://github.com/ebertin/sextractorxx/archive/feature/progress.tar.gz", :using => GitHubPrivateRepositoryDownloadStrategy
+  url "https://github.com/ebertin/sextractorxx/archive/develop.tar.gz", :using => GitHubPrivateRepositoryDownloadStrategy
   version "0.1"
   depends_on "cmake" => :build
   depends_on "Alexandria"
@@ -20,7 +20,7 @@ class Sextractorxx < Formula
     mkdir "build" do
       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"
 
-      system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=NO", *std_cmake_args
+      system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=NO", "-DUSE_SPHINX=OFF", *std_cmake_args
       system "make", "install"
     end
   end
