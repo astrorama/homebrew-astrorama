@@ -2,8 +2,8 @@ class Elements < Formula
   include Language::Python::Virtualenv
 
   desc "C++/Python Build Framework"
-  homepage "https://github.com/astrorama/Elements"
-  url "https://github.com/astrorama/Elements/archive/5.4.tar.gz"
+  homepage "https://github.com/degauden/Elements"
+  url "https://github.com/degauden/Elements/archive/5.6.tar.gz"
   depends_on "boost"
   depends_on "cmake"
   depends_on "log4cpp"
@@ -24,7 +24,7 @@ class Elements < Formula
     ENV.prepend_create_path "PATH", libexec/"bin"
 
     mkdir "build" do
-      system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=OFF", *std_cmake_args
+      system "cmake", "..", "-DPYTHON_EXPLICIT_VERSION=3", "-DELEMENTS_BUILD_TESTS=OFF", "-DUSE_SPHINX=OFF", *std_cmake_args
       system "make", "install"
     end
   end
