@@ -14,9 +14,6 @@ class Sextractorxx < Formula
   depends_on "wcslib"
 
   def install
-    inreplace "SEImplementation/CMakeLists.txt", "COMPONENTS python3", "COMPONENTS python37"
-    inreplace "SEUtils/CMakeLists.txt", "COMPONENTS python3", "COMPONENTS python37"
-
     mkdir "build" do
       ENV["CMAKE_PROJECT_PATH"] = "#{HOMEBREW_PREFIX}/lib/cmake/ElementsProject"
 
